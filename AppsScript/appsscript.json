@@ -1,0 +1,58 @@
+{
+  "timeZone": "Asia/Jerusalem",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "People",
+        "serviceId": "peopleapi",
+        "version": "v1"
+      }
+    ]
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/calendar.addons.execute",
+    "https://www.googleapis.com/auth/calendar",
+    "https://www.googleapis.com/auth/drive.addons.metadata.readonly",
+    "https://www.googleapis.com/auth/gmail.addons.current.action.compose",
+    "https://www.googleapis.com/auth/gmail.addons.current.message.readonly",
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/userinfo.profile"
+  ],
+  "urlFetchWhitelist": [
+    "https://large-moderately-fawn.ngrok-free.app/",
+    "https://rapid-humble-gar.ngrok-free.app/",
+    "https://wombat-exotic-amoeba.ngrok-free.app/",
+    "https://amused-wired-sunfish.ngrok-free.app/"
+  ],
+  "addOns": {
+    "common": {
+      "layoutProperties": {
+        "primaryColor": "#0976B9",
+        "secondaryColor": "#039BE5"
+      },
+      "name": "MeetUP ✨",
+      "logoUrl": "https://i.postimg.cc/RZY6Qvv1/image-1.png",
+      "useLocaleFromApp": true,
+      "homepageTrigger": {
+        "runFunction": "onHomepage",
+        "enabled": true
+      },
+      "universalActions": [
+        {
+          "label": "Go to tau.com",
+          "openLink": "https://www.tau.ac.il/"
+        }
+      ]
+    },
+    "calendar": {
+      "eventOpenTrigger": {
+        "runFunction": "onCalendarEventOpen"
+      }
+    }
+  }
+}
