@@ -1,12 +1,12 @@
 import event as ev
 import datetime as dt
 import pandas as pd
-from scheduling import find_meeting_slot
-import scheduleRequest as sr
-import constants
+from Backend.scheduling import find_meeting_slot
+import Backend.scheduleRequest as sr
+import Backend.constants as constants
 import itertools
-from tokenMaker import get_service, get_credentials
-from scheduleRequest import set_start_time, set_end_time
+from Backend.tokenMaker import get_service, get_credentials
+from Backend.scheduleRequest import set_start_time, set_end_time
 
 # The format of the JSON object that the function returns:
 #         {
