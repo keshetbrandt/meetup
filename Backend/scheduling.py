@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import datetime, timedelta
-from scheduleRequest import ScheduleRequest
-import user
+from Backend.scheduleRequest import ScheduleRequest
+import Backend.user as user
 from googleCalendar_API import get_final_availability
 
 
