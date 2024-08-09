@@ -1,4 +1,4 @@
-import event as ev
+import Backend.event as ev
 import datetime as dt
 import pandas as pd
 from Backend.scheduling import find_meeting_slot
