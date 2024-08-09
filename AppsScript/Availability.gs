@@ -1,11 +1,7 @@
 function showAvailabilityPage(dbGet) {
-    // var userPreferences = getUserPreferences();
     var card = CardService.newCardBuilder()
       .setName("Preferences")
-      .setHeader(CardService.newCardHeader().setTitle("<i>Your working preferences</i>"))
-      // .addSection(CardService.newCardSection());
-      //   // .addWidget(CardService.newTextParagraph()
-      //   //   .setText("Your Working Hour Preferences:")));
+      .setHeader(CardService.newCardHeader().setTitle("<i>Your working preferences</i>"));
   
     // Define the options for the working hours dropdowns
     var workingHourOptions = [
@@ -44,7 +40,7 @@ function showAvailabilityPage(dbGet) {
       .setControlType(CardService.SwitchControlType.SWITCH)
       .setFieldName('Working day')
       .setOnChangeAction(toggleSwitchAction)
-      .setSelected(toggleBool)
+      .setSelected(toggleBool);
   
       var switchWidget = CardService.newDecoratedText()
       .setText(toggleText)
@@ -52,7 +48,7 @@ function showAvailabilityPage(dbGet) {
   
       var section = CardService.newCardSection()
           .addWidget(dayLabel)
-          .addWidget(switchWidget)
+          .addWidget(switchWidget);
   
       if (prefResponse[i].works){  //Create dropdowns
   
@@ -60,7 +56,7 @@ function showAvailabilityPage(dbGet) {
       var dropdown1 = CardService.newSelectionInput()
         .setType(CardService.SelectionInputType.DROPDOWN)
         .setTitle("Starting Hour")
-        .setFieldName(day + '_1')
+        .setFieldName(day + '_1');
   
       // Add the predefined options to the first dropdown
       for (var j = 1; j < workingHourOptions.length; j++) {
@@ -72,7 +68,7 @@ function showAvailabilityPage(dbGet) {
       var dropdown2 = CardService.newSelectionInput()
         .setType(CardService.SelectionInputType.DROPDOWN)
         .setTitle("Ending Hour")
-        .setFieldName(day + '_2')
+        .setFieldName(day + '_2');
   
       // Add the predefined options to the second dropdown
       for (var k = 1; k < workingHourOptions.length; k++) {
@@ -89,29 +85,20 @@ function showAvailabilityPage(dbGet) {
   
     var saveChangesButton = CardService.newTextButton()
     .setTextButtonStyle(CardService.TextButtonStyle.FILLED)
-    .setBackgroundColor("#007bff")
+    .setBackgroundColor("#2792ef")
     .setText('Submit')
     .setOnClickAction(CardService.newAction()
-    .setFunctionName('handleSavePreferences'))
+    .setFunctionName('handleSavePreferences'));
   
     var homePageButton = CardService.newTextButton()
     .setTextButtonStyle(CardService.TextButtonStyle.TEXT)
-    // .setBackgroundColor("#007bff")
     .setText('Back')
     .setOnClickAction(CardService.newAction()
-    .setFunctionName('createHomePageCard'))
+    .setFunctionName('createHomePageCard'));
   
     var cardFooter = CardService.newFixedFooter()
     .setPrimaryButton(saveChangesButton)
     .setSecondaryButton(homePageButton);
-  
-    // Add a "Save preferences" button at the end
-    card.addSection(CardService.newCardSection()
-      // .addWidget(CardService.newButtonSet()
-      //   .addButton(CardService.newTextButton()
-          .addWidget(CardService.newButtonSet()));
-          // .addButton(saveChangesButton)
-          // .addButton(homePageButton)));
   
     card.setFixedFooter(cardFooter);
   
@@ -119,20 +106,19 @@ function showAvailabilityPage(dbGet) {
   }
   
   function handleToggleWorkDay(e){
-    index = e.parameters.index;
+    var index = e.parameters.index;
   
     var userProperties = PropertiesService.getUserProperties();
     var userPref = JSON.parse(userProperties.getProperty('userPref'));
     
-    userPref[index].works = !userPref[index].works
-    userProperties.setProperty('userPref',JSON.stringify(userPref));
-    validateAndSaveProperty(userPref, e.formInput)
-    return showPreferencesPage(false)
+    userPref[index].works = !userPref[index].works;
+    userProperties.setProperty('userPref', JSON.stringify(userPref));
+    validateAndSaveProperty(userPref, e.formInput);
+    return showAvailabilityPage(false);
   
   }
   
-  
-  //Checks if user have changed his preferences
+  // Checks if user has changed their preferences
   function validateAndSaveProperty(userPref, formInput) {
   
     // Check for differences between formInput and userPref
@@ -149,7 +135,7 @@ function showAvailabilityPage(dbGet) {
         if (userPref[i].works && userPref[i].start === 'Not working'){
           return CardService.newActionResponseBuilder()
             .setNotification(CardService.newNotification()
-            .setText('Start hour on '+ userPref[i].day + " must be valid hour"))
+            .setText('Start hour on '+ userPref[i].day + " must be a valid hour"))
               .build(); 
         }
       }
@@ -162,19 +148,17 @@ function showAvailabilityPage(dbGet) {
         if (userPref[i].works && userPref[i].end === 'Not working'){
           return CardService.newActionResponseBuilder()
             .setNotification(CardService.newNotification()
-            .setText('End hour on '+ userPref[i].day + " must be valid hour"))
+            .setText('End hour on '+ userPref[i].day + " must be a valid hour"))
               .build(); 
         }
       }
     }
   
-    //Update userPref into Property service
+    // Update userPref into Property service
     var userProperties = PropertiesService.getUserProperties();
-    userProperties.setProperty('userPref',JSON.stringify(userPref));
+    userProperties.setProperty('userPref', JSON.stringify(userPref));
   
     return undefined;
-  
-  
   }
   
   function handleSavePreferences(e) {
@@ -185,24 +169,21 @@ function showAvailabilityPage(dbGet) {
     var userProperties = PropertiesService.getUserProperties();
     var userPref = JSON.parse(userProperties.getProperty('userPref'));
   
-    // Check if there was a change in pref, if so, send to server using post
-    invalidNotification = validateAndSaveProperty(userPref,formInput);
+    // Check if there was a change in preferences, if so, send to server using post
+    var invalidNotification = validateAndSaveProperty(userPref, formInput);
   
     if (invalidNotification){
       return invalidNotification;
     }
   
-    //Get userPref after changes made and updated in 'checkPrefChange' function
-    var userPref = JSON.parse(userProperties.getProperty('userPref'));
+    // Get userPref after changes made and updated in 'checkPrefChange' function
+    var updatedUserPref = JSON.parse(userProperties.getProperty('userPref'));
   
-    // Post the changes to the server and alert pref changed
-    updateUserPreferences(userPref);
+    // Post the changes to the server and alert preferences changed
+    updateUserPreferences(updatedUserPref);
   
     return CardService.newActionResponseBuilder()
       .setNotification(CardService.newNotification()
         .setText('Changes saved'))
           .build();
   } 
-  
-  
-  
