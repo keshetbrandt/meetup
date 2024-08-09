@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from Backend.scheduleRequest import ScheduleRequest
 import Backend.user as user
-from googleCalendar_API import get_final_availability
+from Backend.googleCalendar_API import get_final_availability
 
 
 # Function to find a meeting slot - takes a ScheduleRequest object and a DataFrame of generated common availabilities from users.
