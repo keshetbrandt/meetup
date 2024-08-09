@@ -53,6 +53,10 @@
     "calendar": {
       "eventOpenTrigger": {
         "runFunction": "onCalendarEventOpen"
+      },
+      "sidebarStyle": {
+        "backgroundColor": "#e8e8e8",
+        "headerColor": "#1f294c"
       }
     }
   }
