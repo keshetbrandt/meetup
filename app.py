@@ -17,8 +17,7 @@ db = Backend.mongoDB_API.conenct_to_db()
 
 @app.route('/', methods=['GET'])
 def trying():
-        return redirect(url_for("https://www.google.com/search?q=%D7%A7%D7%A9%D7%AA+%D7%91%D7%A8%D7%A0%D7%93%D7%98&sca_esv=f4efe242ec4104b1&sca_upv=1&sxsrf=ADLYWIKXs_RMkdjslOHFAFJs6uZN2pUeAQ%3A1723192334328&ei=DtS1Zp7RE_mV9u8PtruVqQ0&ved=0ahUKEwiekN7Xv-eHAxX5iv0HHbZdJdUQ4dUDCBA&uact=5&oq=%D7%A7%D7%A9%D7%AA+%D7%91%D7%A8%D7%A0%D7%93%D7%98&gs_lp=Egxnd3Mtd2l6LXNlcnAiEden16nXqiDXkdeo16DXk9eYMgQQIxgnMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIrwZQhQRY6gVwAHgCkAEAmAGRAaABkQGqAQMwLjG4AQPIAQD4AQGYAgKgAqMBwgIEEAAYR5gDAIgGAZAGCJIHAzEuMaAH6wQ&sclient=gws-wiz-serp"
-))
+        return render_template("login.html")
 
 
 @app.route('/homepage', methods=['GET', 'POST'])
