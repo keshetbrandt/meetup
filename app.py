@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 # Build random secret key
 app.secret_key = os.urandom(22)
+db = mongoDB_API.connect_to_db()
 
 @app.route('/homepage', methods=['GET', 'POST'])
 def homepage():
