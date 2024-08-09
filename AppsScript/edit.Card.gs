@@ -71,7 +71,7 @@ function createEditGroupCard(e,group) {
     
     var homePageButton = CardService.newTextButton()
     .setTextButtonStyle(CardService.TextButtonStyle.TEXT)
-    .setBackgroundColor("#007bff")
+    .setBackgroundColor("#2792ef")
     .setText('🏠')
     .setOnClickAction(CardService.newAction()
     .setFunctionName('createHomePageCard'));
@@ -79,7 +79,7 @@ function createEditGroupCard(e,group) {
     // Create a button to schedule the meeting
     var SaveButton = CardService.newTextButton()
       .setTextButtonStyle(CardService.TextButtonStyle.FILLED)
-      .setBackgroundColor("#009FDC")
+      .setBackgroundColor("#2792ef")
       .setText('Save!')
       .setOnClickAction(CardService.newAction()
       .setFunctionName('createHomePageCard'));
