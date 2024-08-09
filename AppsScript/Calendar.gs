@@ -46,11 +46,11 @@ function createHomePageCard() {
         .setAltText('Your Image Description'); // Add alt text for accessibility
 
     // Creating the Availability button with the same style as Schedule Meeting
-    var availabilityButton = createButton('<i>Change Availability</i>', 'availabilityAction')
+    var availabilityButton = createButton('<i>   Change Availability   </i>', 'availabilityAction')
         .setTextButtonStyle(CardService.TextButtonStyle.FILLED)
         .setBackgroundColor('#2792ef'); // Use the same color for consistency
 
-    var scheduleButton = createButton('<i>+Schedule Meeting</i>', 'navigateToSchedulePage')
+    var scheduleButton = createButton('<i>+    Schedule  Meeting    </i>', 'navigateToSchedulePage')
     .setTextButtonStyle(CardService.TextButtonStyle.FILLED)
     .setBackgroundColor('#2792ef') // Different color for emphasis
 
