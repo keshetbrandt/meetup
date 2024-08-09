@@ -32,8 +32,8 @@
   "addOns": {
     "common": {
       "layoutProperties": {
-        "primaryColor": "#0976B9",
-        "secondaryColor": "#039BE5"
+        "primaryColor": "#1f294c",
+        "secondaryColor": "#e8e8e8"
       },
       "name": "MeetUP",
       "logoUrl": "https://i.postimg.cc/xdW9FbJr/image.jpg",
