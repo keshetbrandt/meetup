@@ -33,7 +33,8 @@
     "common": {
       "layoutProperties": {
         "primaryColor": "#1f294c",
-        "secondaryColor": "#e8e8e8"
+        "secondaryColor": "#e8e8e8",
+        "fontFamily": "ROBOTO"
       },
       "name": "MeetUP",
       "logoUrl": "https://i.postimg.cc/xdW9FbJr/image.jpg",
