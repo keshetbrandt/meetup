@@ -4,9 +4,9 @@ from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 import pandas as pd
 from datetime import datetime, timedelta, timezone
-import tokenMaker
-import user
-from scheduleRequest import ScheduleRequest
+import Backend.tokenMaker as tokenMaker
+import Backend.user as user
+from Backend.scheduleRequest import ScheduleRequest
 import json
 
 #returns pandas DF with all users busy times
