@@ -35,8 +35,8 @@
         "primaryColor": "#0976B9",
         "secondaryColor": "#039BE5"
       },
-      "name": "MeetUP ✨",
-      "logoUrl": "https://i.postimg.cc/RZY6Qvv1/image-1.png",
+      "name": "MeetUP",
+      "logoUrl": "https://i.postimg.cc/xdW9FbJr/image.jpg",
       "useLocaleFromApp": true,
       "homepageTrigger": {
         "runFunction": "onHomepage",
