@@ -1,0 +1,9 @@
+{% extends "inedx.html" %}
+
+{% block content %}
+<form action='/login' method='post'>
+    <p>Email:</p>
+    <p><input type="text" name="email"/></p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+{% endblock %}
